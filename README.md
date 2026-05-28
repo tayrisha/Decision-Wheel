@@ -1,2 +1,23 @@
-# Decision-Wheel
-Full-stack decision-making app with weighted scoring, interactive wheel spins, and quick random mode. Users compare options using customizable factors, themes, and reflections. Built with React, FastAPI, PostgreSQL, and Docker.
+# Decision Wheel
+
+A full-stack decision-making app where users can compare options using scoring factors or use quick random mode.
+
+## Tech stack
+
+- Frontend: React + Vite
+- Backend: Python + FastAPI
+- Database: PostgreSQL
+- Deployment: Docker, Oracle Cloud
+
+## Planned features
+
+- Decision scoring flow
+- Random quick mode
+- Funny/formal tone mode
+- User accounts
+- Decision history
+- Reflection after result
+
+## Local development
+
+Coming soon.
