@@ -1,0 +1,97 @@
+---
+description: Conventional Commits message format — apply only when creating or drafting a git commit
+alwaysApply: false
+---
+
+# Conventional Commits
+
+**When this rule applies:** only when the user asks you to commit, review staged changes for a commit, or you are drafting/running `git commit`. Do not use this format for PR titles, chat replies, or non-commit work.
+
+When committing, **always** use [Conventional Commits](https://www.conventionalcommits.org/) format.
+
+## Format
+
+```
+<type>[optional scope]: <description>
+
+[optional body]
+
+[optional footer(s)]
+```
+
+- **type** and **description** are required.
+- Use **imperative mood** in the description (`add`, `fix`, `update` — not `added`, `fixes`).
+- Keep the **subject line ≤ 72 characters**; no trailing period.
+- Use **lowercase** for type and description start (except proper nouns).
+- **scope** is optional, lowercase, in parentheses: `feat(api): ...`
+
+## Allowed types
+
+| Type | Use when |
+|------|----------|
+| `feat` | New user-facing behavior or capability |
+| `fix` | Bug fix |
+| `docs` | Documentation only |
+| `style` | Formatting, whitespace (no logic change) |
+| `refactor` | Code change that neither fixes a bug nor adds a feature |
+| `perf` | Performance improvement |
+| `test` | Adding or updating tests |
+| `build` | Build system, dependencies, Docker |
+| `ci` | CI/CD configuration |
+| `chore` | Maintenance, tooling, gitignore, configs |
+| `revert` | Reverts a prior commit |
+
+## Scopes (this repo)
+
+Prefer these when the change is clearly scoped:
+
+- `api` — FastAPI backend
+- `frontend` — React/Vite UI
+- `db` — PostgreSQL, migrations, models
+- `docker` — Docker, compose, deployment
+- `mcp` — Google Workspace MCP / Cursor MCP setup
+- `deps` — dependency bumps only
+
+Omit scope if the change spans multiple areas or scope is unclear.
+
+## Breaking changes
+
+Add `!` after type/scope **or** a footer:
+
+```
+feat(api)!: remove legacy scoring endpoint
+
+BREAKING CHANGE: /score/v1 removed; use /score/v2
+```
+
+## Examples
+
+```
+feat(frontend): add decision wheel spin animation
+fix(api): correct option score totals when factors are negative
+docs: document local dev setup in README
+chore: gitignore local MCP and docs folders
+test(api): cover scoring matrix edge cases
+build(docker): add multi-stage image for FastAPI service
+```
+
+## Commit workflow
+
+1. Run `git status` and `git diff` before committing.
+2. Draft the message from **actual staged changes** — do not guess.
+3. One logical change per commit when possible.
+4. Do **not** commit unless the user explicitly asked.
+5. Never commit secrets (`.env`, `credentials.json`, `token.json`).
+
+## Bad vs good
+
+```
+❌ Update stuff
+❌ Fixed bug
+❌ WIP
+❌ feat: Added new feature for the wheel.
+
+✅ fix(frontend): prevent double spin on rapid clicks
+✅ feat(api): add POST /decisions scoring endpoint
+✅ chore(mcp): ignore local google-workspace install
+```

@@ -216,3 +216,16 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Cursor — local config ignored; shared rules are committed
+.cursor/*
+!.cursor/rules/
+!.cursor/rules/**
+
+# Local docs (not committed)
+docs/
+
+# Google Workspace MCP (local install — see docs/GOOGLE_MCP_SETUP.md)
+tools/google-workspace-mcp/
+
+scripts/setup-google-mcp.ps1
